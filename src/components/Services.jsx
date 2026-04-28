@@ -34,7 +34,7 @@ export default function Services() {
               delay={0.1 + i * 0.1}
             >
               <div
-                className="bg-white rounded-2xl p-7 border border-[#0808DB]/10
+                className="bg-white rounded-2xl p-7 border border-[#DBB732] md:border-[#0808DB]/10
                            transition-all duration-300 cursor-default
                            hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(8,8,219,0.1)]
                            hover:border-[#DBB732] h-full"
