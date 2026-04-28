@@ -33,35 +33,35 @@ function AnimatedCounter({ target, suffix = "" }) {
 
 export default function Capability() {
   return (
-    <section id="capability" className="bg-white py-24 px-8">
+    <section id="capability" className="bg-white py-16 md:py-20 px-5 md:px-8">
       <div className="max-w-6xl mx-auto">
 
         {/* Heading */}
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <span
-              className="inline-block px-5 py-1.5 rounded-full text-[#0808DB] text-xs font-semibold tracking-widest mb-4"
-              style={{ background: "rgba(8,8,219,0.06)" }}
-            >
+        <div className="text-center mb-12">
+          <AnimatedSection variant="blur-up" delay={0}>
+            <span className="inline-block px-5 py-1.5 rounded-full text-[#0808DB] text-xs font-semibold tracking-widest mb-4 bg-[#0808DB]/6">
               KAPASITAS KAMI / OUR CAPABILITY
             </span>
-            <h2 className="text-4xl font-extrabold text-[#020240] mb-3">Angka Berbicara</h2>
-            <p className="text-[#888] text-base">Numbers That Speak for Themselves</p>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
 
-        {/* Stat counters */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          <AnimatedSection variant="fade-up" delay={0.1}>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#020240] mb-2">Angka Berbicara</h2>
+          </AnimatedSection>
+
+          <AnimatedSection variant="fade-up" delay={0.18}>
+            <p className="text-[#888] text-base">Numbers That Speak for Themselves</p>
+          </AnimatedSection>
+        </div>
+
+        {/* Stat counters — zoom-in, each pops independently */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12">
           {STATS.map((s, i) => (
-            <AnimatedSection key={s.label} delay={i * 0.1}>
-              <div
-                className="text-center rounded-2xl p-10"
-                style={{ background: "linear-gradient(135deg, #0808DB, #020240)" }}
-              >
-                <div className="text-[#DBB732] text-5xl font-black leading-none">
+            <AnimatedSection key={s.label} variant="zoom-in" delay={0.1 + i * 0.1}>
+              <div className="text-center rounded-2xl p-6 bg-linear-to-br from-[#0808DB] to-[#020240]">
+                <div className="text-[#DBB732] text-3xl md:text-4xl font-black leading-none">
                   <AnimatedCounter target={s.val} suffix={s.suffix} />
                 </div>
-                <div className="text-white text-[15px] font-semibold mt-3">{s.label}</div>
+                <div className="text-white text-sm font-semibold mt-3">{s.label}</div>
                 <div className="text-white/40 text-[11px] tracking-wide mt-1">{s.en}</div>
               </div>
             </AnimatedSection>
@@ -69,36 +69,45 @@ export default function Capability() {
         </div>
 
         {/* Capability detail */}
-        <AnimatedSection delay={0.2}>
-          <div className="bg-[#f8f9ff] rounded-3xl p-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-[28px] font-extrabold text-[#020240] mb-3">
+        <div className="bg-[#f8f9ff] rounded-3xl p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center overflow-hidden">
+
+          {/* Left text — three staggered blocks */}
+          <div>
+            <AnimatedSection variant="fade-left" delay={0.05}>
+              <h3 className="text-2xl font-extrabold text-[#020240] mb-2">
                 Infrastruktur Produksi Kelas Industri
               </h3>
-              <p className="text-[#888] text-[13px] tracking-wide mb-6">
+            </AnimatedSection>
+
+            <AnimatedSection variant="fade-left" delay={0.14}>
+              <p className="text-[#888] text-xs tracking-wide mb-5">
                 INDUSTRIAL-GRADE PRODUCTION INFRASTRUCTURE
               </p>
-              <p className="text-[#555] text-[15px] leading-relaxed">
+            </AnimatedSection>
+
+            <AnimatedSection variant="fade-left" delay={0.22}>
+              <p className="text-[#555] text-sm leading-relaxed">
                 Dapur produksi kami dilengkapi peralatan berkapasitas tinggi, sistem penyimpanan
                 berpendingin modern, dan armada distribusi yang menjangkau lokasi terpencil
                 di seluruh nusantara.
               </p>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {CAPABILITIES.map((item, i) => (
-                <AnimatedSection key={item} delay={0.3 + i * 0.08} direction="right">
-                  <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[#DBB732] flex items-center justify-center flex-shrink-0">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#020240]" />
-                    </div>
-                    <span className="text-[#333] text-sm">{item}</span>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+
+          {/* Right list — each item slides in from right */}
+          <div className="flex flex-col gap-3">
+            {CAPABILITIES.map((item, i) => (
+              <AnimatedSection key={item} variant="fade-right" delay={0.1 + i * 0.09}>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#DBB732] flex items-center justify-center shrink-0">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#020240]" />
+                  </div>
+                  <span className="text-[#333] text-sm">{item}</span>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>

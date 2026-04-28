@@ -3,50 +3,57 @@ import { CONTACT_INFO } from "../constants/data";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-white py-24 px-8">
-      <div className="max-w-2xl mx-auto text-center">
+    <section id="contact" className="bg-white py-16 md:py-20 px-5 md:px-8">
+      <div className="max-w-4xl mx-auto text-center">
 
-        <AnimatedSection>
-          <span
-            className="inline-block px-5 py-1.5 rounded-full text-[#0808DB] text-xs font-semibold tracking-widest mb-5"
-            style={{ background: "rgba(8,8,219,0.06)" }}
-          >
+        {/* Badge */}
+        <AnimatedSection variant="blur-up" delay={0}>
+          <span className="inline-block px-5 py-1.5 rounded-full text-[#0808DB] text-xs font-semibold tracking-widest mb-5 bg-[#0808DB]/6">
             HUBUNGI KAMI / CONTACT US
           </span>
-          <h2 className="text-5xl font-extrabold text-[#020240] mb-5">
+        </AnimatedSection>
+
+        {/* Main heading */}
+        <AnimatedSection variant="fade-up" delay={0.1}>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[#020240] mb-4">
             Siap Bekerja Sama?
           </h2>
+        </AnimatedSection>
+
+        {/* English subtitle */}
+        <AnimatedSection variant="fade-up" delay={0.18}>
           <p className="text-[#888] text-[15px] mb-2">Ready to Partner With Us?</p>
-          <p className="text-[#555] text-base leading-relaxed mb-12 max-w-lg mx-auto">
+        </AnimatedSection>
+
+        {/* Description */}
+        <AnimatedSection variant="fade-up" delay={0.26}>
+          <p className="text-[#555] text-base leading-relaxed mb-10 max-w-lg mx-auto">
             Kami siap mendiskusikan kebutuhan katering industri perusahaan Anda. Hubungi tim
             kami untuk konsultasi dan penawaran harga terbaik.
           </p>
         </AnimatedSection>
 
-        {/* Contact info cards */}
-        <AnimatedSection delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-            {CONTACT_INFO.map((c) => (
-              <div
-                key={c.label}
-                className="bg-[#f8f9ff] rounded-2xl p-6 border border-[#0808DB]/08"
-              >
+        {/* Contact info cards — each slides in individually */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          {CONTACT_INFO.map((c, i) => (
+            <AnimatedSection key={c.label} variant="zoom-in" delay={0.3 + i * 0.1}>
+              <div className="bg-[#f8f9ff] rounded-2xl p-6 border border-[#0808DB]/8 h-full">
                 <span className="text-2xl block mb-2">{c.icon}</span>
                 <p className="text-[#888] text-xs tracking-wide mb-1">{c.label}</p>
                 <p className="text-[#020240] font-semibold text-sm">{c.val}</p>
               </div>
-            ))}
-          </div>
-        </AnimatedSection>
+            </AnimatedSection>
+          ))}
+        </div>
 
-        {/* CTA button */}
-        <AnimatedSection delay={0.35}>
+        {/* CTA button — appears last */}
+        <AnimatedSection variant="zoom-in" delay={0.6}>
           <a
             href="mailto:info@rassanapersada.co.id"
             className="inline-block px-12 py-4 rounded-full text-white font-bold text-[15px]
-                       tracking-wide no-underline transition-all duration-300
-                       hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(8,8,219,0.3)]"
-            style={{ background: "linear-gradient(135deg, #0808DB, #020240)" }}
+                       tracking-wide no-underline bg-linear-to-br from-[#0808DB] to-[#020240]
+                       transition-all duration-300 hover:-translate-y-0.5
+                       hover:shadow-[0_16px_48px_rgba(8,8,219,0.3)]"
           >
             Kirim Pesan / Send Message
           </a>
