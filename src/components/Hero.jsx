@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+                                        import { useEffect, useState } from "react";
 
 const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   id: i,
@@ -44,7 +44,7 @@ export default function Hero() {
 
       {/* Decorative rings */}
       <div className="absolute top-[20%] right-[10%] w-96 h-96 rounded-full border border-[#DBB732]/15 animate-spin-slow" />
-      <div className="absolute top-[15%] right-[7%] w-[500px] h-[500px] rounded-full border border-[#DBB732]/8 animate-spin-slower" />
+      <div className="absolute top-[15%] right-[7%] w-125 h-125 rounded-full border border-[#DBB732]/8 animate-spin-slower" />
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl w-full">
