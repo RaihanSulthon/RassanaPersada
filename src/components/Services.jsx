@@ -5,7 +5,6 @@ export default function Services() {
   return (
     <section id="services" className="bg-[#f8f9ff] py-16 md:py-20 px-5 md:px-8">
       <div className="max-w-6xl mx-auto">
-
         {/* Heading — three elements stagger in */}
         <div className="text-center mb-12">
           <AnimatedSection variant="blur-up" delay={0}>
@@ -26,39 +25,32 @@ export default function Services() {
         </div>
 
         {/* Cards — zoom-in staggered */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {SECTORS.map((s, i) => (
             <AnimatedSection
               key={s.title}
               variant="zoom-in"
-              delay={0.1 + i * 0.1}
-            >
+              delay={0.1 + i * 0.1}>
               <div
                 className="bg-white rounded-2xl p-7 border border-[#DBB732] md:border-[#0808DB]/10
                            transition-all duration-300 cursor-default
                            hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(8,8,219,0.1)]
-                           hover:border-[#DBB732] h-full"
-              >
+                           hover:border-[#DBB732] h-full">
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-3xl">{s.icon}</span>
-                  <span
-                    className={`text-[11px] font-bold px-3 py-1 rounded-full tracking-wide ${
-                      s.tag === "Flagship"
-                        ? "bg-[#DBB732] text-[#020240]"
-                        : "bg-[#0808DB]/10 text-[#0808DB]"
-                    }`}
-                  >
+                  <span className="text-[11px] font-bold px-3 py-1 rounded-full tracking-wide bg-[#0808DB]/10 text-[#0808DB]">
                     {s.tag}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-[#020240] mb-1">{s.title}</h3>
+                <h3 className="text-lg font-bold text-[#020240] mb-1">
+                  {s.title}
+                </h3>
                 <p className="text-[#aaa] text-xs tracking-wide mb-3">{s.en}</p>
                 <p className="text-[#555] text-sm leading-relaxed">{s.desc}</p>
               </div>
             </AnimatedSection>
           ))}
         </div>
-
       </div>
     </section>
   );
