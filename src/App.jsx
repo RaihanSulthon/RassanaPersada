@@ -8,10 +8,11 @@ import MenuSection from "./components/MenuSection";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <Navbar />
       <Hero />
       <About />
@@ -22,6 +23,6 @@ export default function App() {
       <Certifications />
       <Contact />
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }
