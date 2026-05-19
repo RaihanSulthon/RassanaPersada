@@ -34,9 +34,9 @@ export default function MenuSection() {
           {SERVICES_MANAGEMENT.map((s, i) => (
             <AnimatedSection key={s.title} variant="zoom-in" delay={0.1 + i * 0.07}>
               <div
-                className="bg-white rounded-2xl p-5 border border-[#0808DB]/10 flex items-center gap-4
-                             transition-all duration-300 hover:-translate-y-1
-                             hover:shadow-[0_12px_40px_rgba(8,8,219,0.08)] h-full"
+                className="bg-white rounded-2xl p-5 border border-slate-200 flex items-center gap-4
+             transition-all duration-300 hover:-translate-y-1 hover:border-[#0808DB]/40
+             hover:shadow-[0_12px_40px_rgba(8,8,219,0.12)] h-full"
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 bg-linear-to-br from-[#0808DB] to-[#020240]">
                   <span className="text-lg">{s.icon}</span>
@@ -64,8 +64,9 @@ export default function MenuSection() {
             {MENU_SELECTONE.map((m, i) => (
               <AnimatedSection key={m.title} variant="zoom-in" delay={0.1 + i * 0.08}>
                 <div
-                  className="flex items-start gap-3 rounded-xl p-4 border border-[#DBB732]/20
-                               hover:border-[#DBB732]/50 hover:bg-[#DBB732]/5 transition-all duration-300 h-full"
+                  className="flex items-start gap-3 rounded-xl p-4 border border-white/15
+             hover:border-[#DBB732] hover:bg-[#DBB732]/10 hover:-translate-y-0.5
+             hover:shadow-[0_8px_24px_rgba(219,183,50,0.2)] transition-all duration-300 h-full"
                 >
                   <span className="text-2xl shrink-0">{m.icon}</span>
                   <p className="text-white font-semibold text-sm leading-snug">{m.title[lang]}</p>
